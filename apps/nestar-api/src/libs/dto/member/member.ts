@@ -74,10 +74,10 @@ export class Member {
 	deletedAt?: Date;
 
 	@Field(() => Date)
-	createdAt?: Date;
+	createdAt: Date;
 
 	@Field(() => Date)
-	updatedAt?: Date;
+	updatedAt: Date;
 
 	@Field(() => String, { nullable: true })
 	accessToken?: string;
