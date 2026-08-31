@@ -40,7 +40,7 @@ export class PropertyResolver {
 		@Args('propertyId') input: string,
 		@AuthMember('_id') memberId: ObjectId,
 	): Promise<Property> {
-		console.log('Mutation:  getProperty');
+		console.log('Query:  getProperty');
 		const propertyId = shapeIntoMongoObjectId(input);
 
 		return await this.propertyService.getProperty(memberId, propertyId);
