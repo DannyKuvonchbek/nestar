@@ -268,6 +268,6 @@ export class PropertyService {
 
 	public async propertyStatsEditor(input: StatisticModifier): Promise<Property> {
 		const { _id, targetKey, modifier } = input;
-		return await this.propertyModel.findOneAndUpdate(_id, { $inc: { [targetKey]: modifier } }, { new: true }).exec();
+		return await this.propertyModel.findByIdAndUpdate(_id, { $inc: { [targetKey]: modifier } }, { new: true }).exec();
 	}
 }
