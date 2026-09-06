@@ -14,7 +14,7 @@ import { ViewGroup } from '../../libs/enums/view.enum';
 import { LikeGroup } from '../../libs/enums/like.enum';
 import { LikeInput } from '../../libs/dto/like/like.input';
 import { LikeService } from '../like/like.service';
-import { Follower, Following } from '../../libs/dto/follow/follow';
+import { Follower, Following, MeFollowed } from '../../libs/dto/follow/follow';
 
 @Injectable()
 export class MemberService {
@@ -94,6 +94,8 @@ export class MemberService {
 			const likeInput = { memberId: memberId, likeRefId: targetId, likeGroup: LikeGroup.MEMBER };
 			targetMember.meLiked = await this.likeService.checkLikeExistence(likeInput);
 			//meFollowed
+
+			targetMember.meFollowed = await this.checkSubscribtion(memberId, targetId);
 		}
 		return targetMember;
 	}
