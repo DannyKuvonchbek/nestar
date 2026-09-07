@@ -1,4 +1,6 @@
-export enum HttpCode {
+import { registerEnumType } from '@nestjs/graphql';
+
+export enum Message {
 	SOMETHING_WENT_WRONG = 'Something went wrong',
 	NO_DATA_FOUND = 'No data is found',
 	CREATE_FAILED = 'Create is failed',
@@ -7,6 +9,7 @@ export enum HttpCode {
 	UPLOAD_FAILED = 'Upload is failed',
 	BAD_REQUEST = 'Bad request',
 
+	USED_MEMBER_NICK_OR_PHONE = 'Already used member nick or phone!',
 	NO_MEMBER_NICK = 'No member with that member nick!',
 	BLOCKED_USER = 'You have been blocked, contact the restaurant!',
 	WRONG_PASSWORD = 'Wrong password  please try again!',
@@ -17,3 +20,12 @@ export enum HttpCode {
 	PROVIDE_ALLOWED_FORMAT = 'Please provide jpg, jpeg, or png images!',
 	SELF_SUBSCRIPTION_DENIED = 'Self subription is denied!',
 }
+
+export enum Direction {
+	ASC = 1,
+	DESC = -1,
+}
+
+registerEnumType(Direction, {
+	name: 'Direction',
+});
